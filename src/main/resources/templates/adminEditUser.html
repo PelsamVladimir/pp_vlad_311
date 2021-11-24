@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <h1>Редактирование пользователя</h1>
+    <meta charset="utf-8">
+</head>
+<body>
+     <form th:method="PATCH" th:action="@{/admin/{id}(id=${updateUser.getId()})}" th:object="${updateUser}">
+         <label for="name">Enter name: </label>
+         <input type="text" th:field="*{name}" id="name"/>
+         <br/>
+         <label for="password">Enter Password: </label>
+         <input type="text" th:field="*{password}" id="password"/>
+         <br/>
+         <label for="lastName">Enter LastName: </label>
+         <input type="text" th:field="*{lastName}" id="lastName"/>
+         <br/>
+         <label for="city">Enter City: </label>
+         <input type="text" th:field="*{city}" id="city"/>
+         <br/>
+         <input type="submit" value="Update!"/>
+
+<!--        <ul>-->
+<!--            <li th:each="role : ${rolelist}">-->
+<!--                <input type="checkbox" name="roles" th:field="*{roles}" th:value="${role}"-->
+<!--                       th:text="${role.getName()}" />-->
+<!--            </li>-->
+<!--        </ul>-->
+        <p>
+            <input type="submit" value="edit">
+        </p>
+
+    </form>
+    <p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="logout"/>
+    </form>
+    </p>
+</body>
+</html>
